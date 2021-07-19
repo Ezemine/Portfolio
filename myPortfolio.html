@@ -1,0 +1,119 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Viet Tran's Portfolio</title>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse sidebar" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Viet Tran</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <!-- <li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li> -->
+                        <li ><a href="#about">About Me<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+                        <!--Condense to about me <li ><a href="#skills">Skills<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li> -->
+                        <li><a href="#projects">Projects<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-briefcase"></span></a></li> <!--glyphicon-pencil-->
+                        <!-- <li ><a href="#education">Education<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span></a></li> -->
+                        <li ><a href="#contact">Contact<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-earphone"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="main">
+            <!-- Scroll Snap -->
+            <!-- About, use js to scroll from one div to another - overflow-y = hidden? scroll snap-->
+            <section id ="about" class = "container y mandatory-scroll-snapping" dir="rtl">
+                <p>
+                    Hi, my name is Viet Tran, I am looking to continue working as a Software Developer. I first gained interest in this field from playing video games. This evolved into
+                    refurbishing hardware, coding simple robots move, pick things up, and follow other simple commands, to my last position of making internal desktop applications.
+                    I wish to continue along this path because there are many benefits that automation and digitalization of services will bring and being part of the teams who will make this
+                    into fruition is exciting.
+                </p>
+            </section>
+            <!-- <section id ="skills" class = "container y mandatory-scroll-snapping" dir="rtl">
+                S
+            </section> -->
+            <section id ="projects" class = "container y mandatory-scroll-snapping" dir="rtl">
+                <div class="qCard">
+                    Project 1 PlaceHolder
+                </div>
+                <div class="qCard">
+                    Project 2 PlaceHolder
+                </div>
+                <div class="qCard">
+                    Project 3 PlaceHolder
+                </div>
+                <div class="qCard">
+                    Project 4 PlaceHolder
+                </div>
+            </section>
+            <!-- <section id ="education" class = "container y mandatory-scroll-snapping" dir="rtl">
+                C
+            </section> -->
+            <section id ="contact" class = "container y mandatory-scroll-snapping" dir="rtl">
+                Contact Me PlaceHolder
+            </section>
+            <!-- home - slideshow banner of projects or overview?
+            about - general info, what i am looking to do - home location? may group with Skills
+            projects - link to github - div cards with projects/previous job
+            education - self explanatory
+            contact - email, phone, linkedin... footer? -->
+        </div>
+
+        <script>
+            function htmlbodyHeightUpdate()
+            {
+                var height3 = $( window ).height()
+                var height1 = $('.nav').height()+50
+                height2 = $('.main').height()
+                if(height2 > height3){
+                    $('html').height(Math.max(height1,height3,height2)+10);
+                    $('body').height(Math.max(height1,height3,height2)+10);
+                }
+                else
+                {
+                    $('html').height(Math.max(height1,height3,height2));
+                    $('body').height(Math.max(height1,height3,height2));
+                }
+                
+            }
+            $(document).ready(function ()
+            {
+                htmlbodyHeightUpdate()
+                $( window ).resize(function() {
+                    htmlbodyHeightUpdate()
+                });
+                $( window ).scroll(function() {
+                    height2 = $('.main').height()
+                    htmlbodyHeightUpdate()
+                });
+            });
+        </script>
+
+        <script>
+            //Changes active nav li element
+            $(".nav li").on("click", function()
+            {
+                $(".nav li").removeClass("active");
+                $(this).addClass("active");
+            });
+        </script>
+    </body>    
+</html>
